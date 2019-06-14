@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>NonSugar Application </title>
+		<!--link for timer css-->
+		      <link rel="stylesheet" href="css/style.css">
+			  
+
+			  
+<style>
+a{
+text-decoration:none;
+}
+
+</style>
+
+    </head>
+    <body>
+	
+		<!--link for script index.js-->	
+		<script type="text/javascript" src="js/script.js"></script>
+	
+		<!--link for jquerymobile css-->
+		<link href="js/jquery.mobile-1.4.5.css" rel="stylesheet">
+		
+		<!--link for jquerymobile javascript-->	
+		<script src="js/jquery.js"></script>
+		
+		<!--link for jquerymobile javascript-->		
+		<script src="js/jquery.mobile-1.4.5.js"></script>
+		
+		<script type="text/javascript" src="cordova.js"></script>
+		
+		<!-- ALWAYS INCLUDE SQL LITE PLUGINS(INTO config.xml) BEFORE CONVERTING YOUR APPLICATION--> 
+		
+<!--------------------------------------------------------------------------------PAGE1--------------------------------------------------------------------------------------->		
+	<div data-role="page" id="pageone" data-theme="a"><!--BEGIN OF PAGEONE-->
+
+	
+			<div data-role="header">
+			<h1> Welcome to NonSugar Application  </h1>
+
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			
+			<h3 class="ui-bar ui-bar-a">User Details</h3>
+	
+	<form method="post" onSubmit="return submitForm()">
+		<!--name-->
+		<label class="ui-hidden-accessible">Name</label>
+		<input name="name" type="text"  placeholder="Name"/> 
+		<!--age-->
+		<input type="number" name="age" pattern="[0-9]*" id="age" placeholder="Age">
+		<!--gender-->
+		  <input name="gender" id="radio3" value="male" type="radio" />
+		  <label for="radio3">Male</label>
+		  <input name="gender" id="radio4" value="female" type="radio" />
+		  <label for="radio4">Female</label>
+		<!--weight-->
+		<label for="slider-1">Weight(kg):</label>
+		<input type="range" name="slider_1" id="height_cm" min="0" max="400" value="60">	
+		<!--height-->
+		<label for="slider-1">Height(cm):</label>
+		<input type="range" name="slider_2" id="weight_kg" min="0" max="250" value="150">	
+		
+		<input type="submit" value="Next"/>
+				
+	</form>	
+
+			</div><!-- end of div main-->
+			
+	</div><!-- END OF PAGE1 DIV-->
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE2--------------------------------------------------------------------------------------->		
+	<div data-role="page" id="pagetwo" data-theme="a"><!--BEGIN OF PAGEONE-->
+
+	
+			<div data-role="header">
+			<h1> Welcome to NonSugar Application  </h1>
+
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			
+			<h3 class="ui-bar ui-bar-a">Activity Level</h3>
+	<form method="post" onSubmit="return submitForm()">
+		<a data-role="button" href="#pagethree" data-shadow="false" data-theme="none">
+		  <img src="images/icons/003-run.png" alt="very active" height="10%" width="10%"  border="0"/>
+		  <p> Very Active </p>
+		</a>
+		<a data-role="button" href="#pagethree" data-shadow="false" data-theme="none">
+		  <img src="images/icons/002-relaxing-walk.png" alt="active" height="10%" width="10%"  border="0"/>
+		  <p> Active </p>
+		</a>
+		<a data-role="button" href="#pagethree" data-shadow="false" data-theme="none">
+		  <img src="images/icons/004-stretching-exercises.png" alt="somewhat Active" height="10%" width="10%"  border="0"/>
+		  <p> Somewhat Active </p>
+		</a>
+		<a data-role="button" href="#pagethree" data-shadow="false" data-theme="none">
+		  <img src="images/icons/001-arm-up.png" alt="sedentary" height="10%" width="10%"  border="0"/>
+		  <p> Sedentary </p>
+		</a>
+				
+	</form>	
+
+				  
+
+			</div><!-- end of div main-->
+	
+	</div><!-- END OF PAGE2 DIV-->
+
+<!--------------------------------------------------------------------------------PAGE3(bmi)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="pagethree" data-theme="a"><!--BEGIN OF PAGEONE-->
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			
+			<div class="username" id="username">
+			</div>
+				 
+			<form role="form" name="bmiForm">
+			 <div id="metric" ng-show="units == 'metric'">
+				<div class="form-group">
+				  <label for="weight_kg">Weight (kg):</label>
+					<div id="weight">
+					</div>
+				</div>
+				
+				<div class="form-group">
+				  <label for="height_cm">Height (cm):</label>
+				  <div id="height">
+
+					</div>				  
+				</div>
+            
+			</div>
+	        <input type="button" value="Check Your BMI" onclick="calculateBmi()"/>	
+
+				Your BMI: <input type="text" name="bmi" size="10"><br />
+				This Means: <input type="text" name="meaning" size="25"><br />			
+			</form>
+			
+			</div><!-- end of div main-->
+			
+
+
+	
+	
+	</div><!-- END OF PAGE3 DIV-->	
+
+
+
+<!--------------------------------------------------------------------------------PAGE4(exercise)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="exercise" data-theme="a"><!--BEGIN OF PAGEONE-->
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<ul data-role="listview" data-inset="true">
+				<!--abs-->
+					<li><a href="#timer">
+						<img src="images/Workout/abs.png">
+					<h2>Abs</h2>
+					<p>Time</p></a>
+					</li>
+				<!--dips-->
+					<li><a href="#timer">
+						<img src="images/Workout/dips.png">
+					<h2>Dips</h2>
+					<p>Time</p></a>
+					</li>
+				<!--high_knees-->
+					<li><a href="#timer">
+						<img src="images/Workout/high_knees.png">
+					<h2>High Knees</h2>
+					<p>Time</p></a>
+					</li>
+				<!--lunges-->
+					<li><a href="#timer">
+						<img src="images/Workout/lunges.png">
+					<h2>High Knees</h2>
+					<p>Time</p></a>
+					</li>
+				<!--push_up-->
+					<li><a href="#timer">
+						<img src="images/Workout/push_up.png">
+					<h2>High Knees</h2>
+					<p>Time</p></a>
+					</li>
+				<!--squat-->
+					<li><a href="#timer">
+						<img src="images/Workout/squat.png">
+					<h2>High Knees</h2>
+					<p>Time</p></a>
+					</li>
+				</ul>
+			
+			</div><!-- end of div main-->
+			
+	</div><!-- END OF PAGE4 DIV-->	
+	
+	
+
+<!--------------------------------------------------------------------------------PAGE5(timer)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="timer" data-theme="a"><!--BEGIN OF PAGEONE-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#exercise" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			  <section class="main-container">
+				<header class="title">
+				</header>
+
+				<div id="countdown-container" class="display">
+				  <span id="time-type" class="timeType">work session</span>
+
+				  <div class="time-box"><img src="images/icons/006-time.png" width="40%"><time id="countdown" class="timeDisplay"></time></div>
+				</div>
+
+
+				<div class="control-buttons-container">
+				  <button type="button" id="start-session" class="control-button">Start</button>
+				  <button type="button" id="pause-session" class="control-button">Pause</button>
+				  <button type="button" id="reset-session" class="control-button">Reset</button>
+				</div>
+
+
+				<div class="pomodoro-container">
+
+				  <div class="work-time-container">
+					<h4>Work Time<br>(min)</h4>
+				 
+					<div class="work-switches flex-box">
+					  <button class="switches minus" type="button" id="minusWorkTime"><i class="fas fa-minus"></i></button>
+					  <time id="work-length" class="minutesDisplay"></time>
+					  <button class="switches plus" type="button" id="plusWorkTime"><i class="fas fa-plus"></i></button>
+					</div>
+				  </div>
+
+
+				  <div class="break-time-container">
+					<h4>Break Time<br>(min)</h4>
+				  
+					<div class="break-switches flex-box">
+					  <button class="switches minus" type="button" id="minusBreakTime"><i class="fas fa-minus"></i></button>
+					  <time id="break-length" class="minutesDisplay"></time>
+					  <button class="switches plus" type="button" id="plusBreakTime"><i class="fas fa-plus"></i></button>
+					</div>
+				  </div>
+				</div>
+			  </section>
+			
+			</div><!-- end of div main-->
+			
+	
+			
+	</div><!-- END OF PAGE5 DIV-->
+	
+	
+<!--------------------------------------------------------------------------------PAGE6(food)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="food" data-theme="a"><!--BEGIN OF PAGEONE-->
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<ul data-role="listview" data-inset="true">
+				<!--abs-->
+					<li><a href="#fatty_fish">
+						<img src="images/Photos/fatty_fish.png">
+					<h2>Fatty Fish</h2>
+					</a>
+					</li>
+				<!--dips-->
+					<li><a href="#leafy_green">
+						<img src="images/Photos/leafy_greens.png">
+					<h2>Leafy Green</h2>
+					</a>
+					</li>
+				<!--high_knees-->
+					<li><a href="#cinnamon">
+						<img src="images/Photos/cinnamon.png">
+					<h2>Cinnamon</h2>
+					</a>
+					</li>
+				<!--lunges-->
+					<li><a href="#eggs">
+						<img src="images/Photos/eggs.png">
+					<h2>Eggs</h2>
+					</a>
+					</li>
+				</ul>
+			
+			</div><!-- end of div main-->
+			
+	</div><!-- END OF PAGE6 DIV-->
+	
+	
+<!--------------------------------------------------------------------------------PAGE7(fatty_fish)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="fatty_fish" data-theme="a"><!--BEGIN OF PAGEONE-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#food" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Fatty Fish</h3>
+				<img src="images/Photos/fatty_fish.png" width="100%">
+					  <div class="ui-body">
+						  <p>Fatty Fish is one of the healthiest foods on the planet.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>Salmon,sardines,herring,anchovies and mackerel are great sources of omega-3 fatty acids DHA and EPA, hwich have majour benefits for heart health.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>Getting enough of these fats on a regular basis is especially important for diabetics.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>DHA and EPA protect the cells that line your blood vessels, reduce markers of inflammation and improve the way your arteries function after eating.</p>
+						  </div>						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE7 DIV-->
+	
+	
+<!--------------------------------------------------------------------------------PAGE8(leafy_green)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="leafy_green" data-theme="a"><!--BEGIN OF PAGEONE-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#food" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Leafy Green</h3>
+				<img src="images/Photos/leafy_greens.png" width="100%">
+					  <div class="ui-body">
+						  <p>Leafy green vegetables are extremely nutritious and low in calories.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>They're also very low in digestible carbs, which raise your blood sugar levels.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>Spinach, kale and other leafy greens are good sources of several vitamins and minerals, including vitamin C.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>In addition, leafy greens are good sources of the antioxidants lutein and zeaxanthin. 
+						  These antioxidants protect your eyes from macular degeneration and cataracts, which are common diabetes complications.</p>
+						  </div>						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE8 DIV-->
+	
+
+<!--------------------------------------------------------------------------------PAGE9(cinnamon)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="cinnamon" data-theme="a"><!--BEGIN OF PAG9-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#food" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Cinnamon</h3>
+				<img src="images/Photos/cinnamon.png" width="100%">
+					  <div class="ui-body">
+						  <p>Cinnamon is a delicious spice with potent antioxidant activity.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>Several controlled studies have shown that cinnamon can lower blood sugar levels and improve insulin sensitivity</p>
+						  </div>
+					<div class="ui-body">
+						  <p>Long-term diabetes control is typically determined by measuring hemoglobin A1c, which reflects your average blood sugar level over 2–3 months.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>Cinnamon may improve blood sugar control, insulin sensitivity, cholesterol and triglyceride levels in type 2 diabetics.</p>
+						  </div>						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE9 DIV-->
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE10(eggs)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="eggs" data-theme="a"><!--BEGIN OF PAG9-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#food" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Eggs</h3>
+				<img src="images/Photos/eggs.png" width="100%">
+					  <div class="ui-body">
+						  <p>Eggs provide amazing health benefits.</p>
+						  </div>
+					<div class="ui-body">
+						  <p>In fact, they're one of the best foods for keeping you full for hours</p>
+						  </div>
+					<div class="ui-body">
+						  <p>Eggs decrease inflammation, improve insulin sensitivity, increase your "good" HDL cholesterol levels and modify the size and shape of your "bad" LDL cholesterol</p>
+						  </div>
+					<div class="ui-body">
+						  <p>In addition, eggs are one of the best sources of lutein and zeaxanthin, antioxidants that protect the eyes from disease.p>
+						  </div>						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE10 DIV-->
+<!-----------------------------------------------------------------------------end of food tips------------------------------------>
+
+
+<!--------------------------------------------------------------------------------PAGE11(bloood)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="blood" data-theme="a"><!--BEGIN OF PAGE11-->
+	
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Testing Blood Sugar with a Glucometer</h3>
+				<img src="images/Photos/step1.png" width="100%">
+					  <div class="ui-body">
+						  <h2>Step 1 : Clean your hands and sampling area. </h2>
+						  </div>
+					<div class="ui-body">
+						  <p>Use hot water and soap to wash your hands.
+						  Clean the finger you’re going to prick with an alcohol swab, or with rubbing alcohol on a cotton ball.
+						  Alcohol evaporates rapidly so there's no need to dry the area; that will just recontaminate it.
+						  Let the alcohol air dry.</p>
+						  </div>					  
+					  </div>
+					
+			
+		<div data-role="footer"> 
+				<a style="float:right" href="#step2" data-transition="slide" data-icon="carat-r"> Next </a>
+		</div>	
+			
+	</div><!-- END OF PAGE11 DIV-->
+	
+	
+<!--------------------------------------------------------------------------------PAGE12(blood-step2)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="step2" data-theme="a"><!--BEGIN OF PAGE12-->
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Testing Blood Sugar with a Glucometer</h3>
+				<img src="images/Photos/step2.png" width="100%">
+					  <div class="ui-body">
+						  <h2>Step 2 : Assemble the device.</h2>
+						  </div>
+					<div class="ui-body">
+						  <p>Insert a test strip into the glucometer, ensuring your insert the proper end inward.
+						  Insert a lancet into the lancing device you use to prick your finger.</p>
+					</div>
+
+					<div class="ui-body">
+					<p>Glucometers may differ in when you insert the test strip. Usually it is inserted in
+					order to turn the machine on, but sometimes you have to put the blood on the strip 
+					and then insert it into the machine. Make sure you know which way your
+					glucometer works before you prick your finger.</p>					
+					</div>
+						  </div>					  
+					
+			
+		<div data-role="footer"> 
+				<a style="float:left" href="#blood" data-transition="slide" data-icon="carat-l"> Previous </a>
+				<a style="float:right" href="#step3" data-transition="slide" data-icon="carat-r"> Next </a>
+		</div>	
+			
+	</div><!-- END OF PAGE12 DIV-->
+	
+	
+<!--------------------------------------------------------------------------------PAGE13(blood-step3)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="step3" data-theme="a"><!--BEGIN OF PAGE13-->
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Testing Blood Sugar with a Glucometer</h3>
+				<img src="images/Photos/step3.png" width="100%">
+					  <div class="ui-body">
+						  <h2>Step 3 : Wait for the glucometer to prompt you for a sample.</h2>
+						  </div>
+					<div class="ui-body">
+						  <p>A readout on the glucometer will tell you to put the drop of blood on the strip.
+						  The readout may actually say "place sample on strip," or it may give you a symbol,
+						  such as an icon that looks like a droplet of liquid.</p>
+					</div>
+						  </div>					  
+					
+			
+		<div data-role="footer"> 
+				<a style="float:left" href="#step2" data-transition="slide" data-icon="carat-l"> Previous </a>
+				<a style="float:right" href="#step4" data-transition="slide" data-icon="carat-r"> Next </a>
+		</div>	
+			
+	</div><!-- END OF PAGE13 DIV-->
+
+
+	
+<!--------------------------------------------------------------------------------PAGE14(blood-step4)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="step4" data-theme="a"><!--BEGIN OF PAGE14-->
+	
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Testing Blood Sugar with a Glucometer</h3>
+				<img src="images/Photos/step4.png" width="100%">
+					  <div class="ui-body">
+						  <h2>Step 4 : Test your blood sample.</h2>
+						  </div>
+					<div class="ui-body">
+						  <p>Prick your finger with the lancing device. This usually causes no, or very minimal, discomfort.
+						  You may need to squeeze or massage the finger you pricked on either side to squeeze out a drop of blood.
+						  Let the blood form a small bead on your finger. Hold the bead of blood to touch the tip of the strip at the right place,
+						  which should be indicated on the strip.</p>
+					</div>
+					
+					<div class="ui-body">
+						  <p>Some people find it more comfortable to prick the side of the finger close to the fingernail,
+						  rather than the pad of the finger – there are fewer nerve endings on the side, making it a less sensitive area</p>
+					</div>	
+					
+						  </div>					  
+					
+			
+		<div data-role="footer"> 
+				<a style="float:left" href="#step3" data-transition="slide" data-icon="carat-l"> Previous </a>
+				<a style="float:right" href="#step5" data-transition="slide" data-icon="carat-r"> Next </a>
+		</div>	
+			
+	</div><!-- END OF PAGE14 DIV-->
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE15(blood-step5)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="step5" data-theme="a"><!--BEGIN OF PAGE15-->
+	
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Testing Blood Sugar with a Glucometer</h3>
+				<img src="images/Photos/step5.png" width="100%">
+					  <div class="ui-body">
+						  <h2>Step 5 : Wait for your results.</h2>
+						  </div>
+					<div class="ui-body">
+						  <p>The glucometer will start to count down in seconds until your results are ready to read.
+						  Newer glucometers only take about 5 seconds, whereas older versions may take10 to 30 seconds.
+						   The meter will sound a tone, or beep, when it has a reading for you.</p>
+					</div>	
+					
+						  </div>					  
+					
+			
+		<div data-role="footer"> 
+				<a style="float:left" href="#step4" data-transition="slide" data-icon="carat-l"> Previous </a>
+				<a style="float:right" href="#step6" data-transition="slide" data-icon="carat-r"> Next </a>
+		</div>	
+			
+	</div><!-- END OF PAGE15 DIV-->	
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE16(blood-step6)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="step6" data-theme="a"><!--BEGIN OF PAGE16-->
+	
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+			<br>
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Testing Blood Sugar with a Glucometer</h3>
+				<img src="images/Photos/step6.png" width="100%">
+					  <div class="ui-body">
+						  <h2>Step 6 : Read the results.</h2>
+						  </div>
+					<div class="ui-body">
+						  <p>The results will show up on the digital screen of your glucometer. Results will vary depending on what time of day it is,
+						  how recently you ate, and what you ate. There is no single good result for every person.
+						  You should discuss your diabetes with your healthcare provider and set goals for your blood sugar.</p>
+					</div>	
+					
+					<br>
+					<form>
+					  <label for="slider-1"><h2>Result</h2> </label>
+						<input type="number" name="slider-1" id="blood" min="0" max="100" value="50" data-popup-enabled="true">
+						<a href="#save" onclick="save();" class="ui-btn"> Keep Record </a>						
+					</form>
+					
+						  </div>					  
+					
+			
+		<div data-role="footer"> 
+				<a style="float:left" href="#step5" data-transition="slide" data-icon="carat-l"> Previous </a>
+		</div>	
+			
+	</div><!-- END OF PAGE15 DIV-->	
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE17(map)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="map" data-theme="a"><!--BEGIN OF PAGE17-->
+	
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<div id="mapid" style="width: 600px; height: 400px;"></div> 
+ 
+
+					
+						  </div>					  
+					
+			
+		<div data-role="footer"> 
+				<a  href="#map" data-transition="slide"> Map </a>
+		</div>	
+			
+	</div><!-- END OF PAGE17 DIV-->	
+	
+	
+	
+		
+<!--------------------------------------------------------------------------------PAGE18(alarm)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="reminder" data-theme="a"><!--BEGIN OF PAGE16-->
+	
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<div class="wrapper">
+					<label>Alarm Time</label>
+					<input type="time" name="" class="alarm-time" />
+					<button class="btn-alarm">Set Alarm</button>
+					<div class="options">
+						<button class="btn-snooze">Snooze for 5s</button>
+						<button class="btn-stopalarm">Stop Alarm</button>
+					</div>
+				</div>
+
+					
+			</div>					  
+					
+			
+		<div data-role="footer"> 
+				<h2> footer </h2>
+		</div>	
+			
+	</div><!-- END OF PAGE18DIV-->
+
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE19(information)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="information" data-theme="a"><!--BEGIN OF PAGE19-->
+	
+	
+			<!--Menu Bar------->
+			<div data-role="panel" id="myPanel" data-display="overlay">
+			 <h2> Menu </h2>
+			 
+			 <!--steps-->
+			 <a href= "#steps" data-transition="slidedown">
+			<p> <img src="images/icons/001-footsteps-silhouette-variant.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Steps</p>
+			 </a>  
+			 <br>
+			 <!--exercise-->
+			 <a href= "#exercise" data-transition="slidedown">
+			<p> <img src="images/icons/002-muscle.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Exercise</p>
+			 </a>  
+			<br>
+			<!--Food-->
+			 <a href= "#food" data-transition="slidedown">
+			<p> <img src="images/icons/010-restaurant-interface-symbol-of-fork-and-knife-couple.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Food Tips</p>
+			 </a> 
+			<br>
+			<!--Map-->
+			 <a href= "#map" data-transition="slidedown">
+			<p> <img src="images/icons/012-placeholder-filled-point.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Map </p>
+			 </a>
+			<br>
+			<!--Blood Sample-->
+			 <a href= "#blood" data-transition="slidedown">
+			<p> <img src="images/icons/002-blood-test-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Blood Sample </p>
+			 </a>
+			 <br>
+			<!--Reminder-->
+			 <a href= "#reminder" data-transition="slidedown">
+			<p> <img src="images/icons/015-reminder-1.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Reminder </p>
+			 </a>
+			 <br>
+			<!--Information-->
+			 <a href= "#information" data-transition="slidedown">
+			<p> <img src="images/icons/016-information.png"  alt="sedentary" height="10%" width="10%"  border="0"/> Information </p>
+			 </a>
+			 </div>	
+			<br>
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#myPanel" class="ui-btn ui-btn-inline" data-icon="bars"> Menu </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				 <ul data-role="listview" data-inset="true" data-divider-theme="a">
+					<li data-role="list-divider">Types of Diabetes</li>
+					<li><a href="#type1">Type 1 Diabetes</a></li>
+					<li><a href="#type2">Type 2 Diabetes</a></li>
+					<li><a href="#gesta">Gestational diabetes</a></li>
+					<li data-role="list-divider">Health problems associated with diabetes</li>
+					<li><a href="#heart">Heart Disease</a></li>
+					<li><a href="#dental">Dental Disease</a></li>
+					<li><a href="#foot">Foot Problems</a></li>
+				</ul>
+
+					
+						  </div>					  
+					
+			
+	</div><!-- END OF PAGE18DIV-->
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE10(eggs)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="type1" data-theme="a"><!--BEGIN OF PAGE19-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#information" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Type 1 Diabetes</h3>
+					  <div class="ui-body">
+						  <p>If you have type 1 diabetes, your body does not make insulin. Your immune system attacks and destroys the cells in your pancreas that make insulin.
+						  Type 1 diabetes is usually diagnosed in children and young adults, although it can appear at any age.
+						  People with type 1 diabetes need to take insulin every day to stay alive.</p>
+						  </div>
+						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE19 DIV-->
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE10(eggs)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="type2" data-theme="a"><!--BEGIN OF PAGE20-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#information" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Type 2 Diabetes</h3>
+					  <div class="ui-body">
+						  <p>If you have type 2 diabetes, your body does not make or use insulin well.
+						  You can develop type 2 diabetes at any age, even during childhood. However,
+						  this type of diabetes occurs most often in middle-aged and older people.
+						  Type 2 is the most common type of diabetes.</p>
+						  </div>
+						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE20 DIV-->
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE10(eggs)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="gesta" data-theme="a"><!--BEGIN OF PAGE20-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#information" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<h3 class="ui-bar ui-bar-a ui-corner-all">Gestational Diabetes</h3>
+					  <div class="ui-body">
+						  <p>Gestational diabetes develops in some women when they are pregnant.
+						  Most of the time, this type of diabetes goes away after the baby is born.
+						  However, if you’ve had gestational diabetes, you have a greater chance of developing type 2 diabetes later in life. 
+						  Sometimes diabetes diagnosed during pregnancy is actually type 2 diabetes.</p>
+						  </div>
+						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE20 DIV-->
+	
+	
+	
+<!--------------------------------------------------------------------------------PAGE10(eggs)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="heart" data-theme="a"><!--BEGIN OF PAGE20-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#information" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<h3 class="ui-bar ui-bar-a ui-corner-all">What can i do to lower my risk of heart disease?</h3>
+					  <div class="ui-body">
+						  <p>1)Control your blood pressure.</p>
+						  <p>2)Keep your cholesterol and triglyceride levels under control. </p>
+						  <p>3)Stay at a healthy weight.</p>
+						  <p>4)Eat a healthy diet.</p>
+						  <p>5)Get regular exercise.</p>
+						  <p>6)Limit alcohol.</p>
+						  </div>
+						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE20 DIV-->
+	
+	
+<!--------------------------------------------------------------------------------PAGE10(eggs)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="dental" data-theme="a"><!--BEGIN OF PAGE20-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#information" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<h3 class="ui-bar ui-bar-a ui-corner-all">What can i do to avoid dental diseases?</h3>
+					  <div class="ui-body">
+						  <p>1)Avoid acidic drinks like soda, energy drinks and water with lemon.</p>
+						  <p>2)Floss daily between each tooth, sliding up and down and back and forth gently to avoid bleeding. </p>
+						  <p>3)Remember to gently brush your tongue for a few seconds, too, to get rid of bacteria</p>
+						  <p>4)See your dentist at least once a year and report any of the signs mentioned above immediately.</p>
+						  </div>
+						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE20 DIV-->
+	
+	
+<!--------------------------------------------------------------------------------PAGE10(eggs)--------------------------------------------------------------------------------------->	
+	<div data-role="page" id="foot" data-theme="a"><!--BEGIN OF PAGE20-->
+	
+	
+			<div data-role="header">
+		
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#information" class="ui-btn ui-btn-inline" data-icon="back"> Back </a></li>
+				</ul>
+			</div><!-- end of div navbar-->
+			</div><!--end of div header-->
+			
+			<div data-role="main" class="ui-content">
+				<h3 class="ui-bar ui-bar-a ui-corner-all">What can i do to avoid foot problems?</h3>
+					  <div class="ui-body">
+						  <p>1)Wash your feet in warm water every day, using a mild soap.</p>
+						  <p>2)Check your feet every day for sores, blisters, redness, calluses. </p>
+						  <p>3)If the skin on your feet is dry, keep it moist by applying lotion after you wash and dry your feet</p>
+						  <p>4)Gently smooth corns and calluses with an emery board or pumice stone. </p>
+						  </div>
+						  
+					  </div>
+					
+			
+	
+			
+	</div><!-- END OF PAGE20 DIV-->
+	
+	
+	
+	
+    <script  src="js/timer.js"></script>	
+	<script  src="js/script2.js"></script>	
+    </body>
+</html>

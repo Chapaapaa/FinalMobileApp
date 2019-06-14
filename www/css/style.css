@@ -1,0 +1,140 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body {
+    height: 100vh;
+    font-weight: 500;
+    background-image: linear-gradient(-20deg, #d9c6f5 0%, #fdefff 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-container {
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    font-size: 4vw;
+    color: rgb(51, 51, 51);
+}
+
+.display {
+    text-align: center;
+}
+
+.timeType {
+    font-size: 2vw;
+    text-transform: uppercase;
+    color: #3f415d;
+    padding: 4px 20px;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+}
+
+.time-box {
+    position: relative;
+    height: 0;
+    width: 25%;
+    padding-bottom: 25%;
+    border-radius: 50%;
+    margin: 4vh auto;
+    background-image: radial-gradient(#7381ffa9 40%, #4959e6be 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    font-size: 6vw;
+    text-shadow: 1px 1px 10px rgb(189, 196, 255);
+    box-shadow: 0 0 10px #000000cc;
+    font-weight: 300;
+}
+
+.timeDisplay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.control-buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.control-button {
+    width: 120px;
+    padding: 10px 12px;
+    margin: 5px;
+    border-radius: 50px;
+    border-style: none;
+    text-transform: lowercase;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #3f415d;
+    background-color: #fff;
+    box-shadow: 0 0 15px #7381ffa9;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.control-button:hover {
+    box-shadow: 0 0 15px #8502ff98;
+}
+
+h4 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: rgb(63, 63, 63);
+}
+
+.pomodoro-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.flex-box {
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.switches {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    border-style: none;
+    color: rgba(51, 51, 51, 0.883);
+    background-color: rgba(255, 255, 255, 0.356);
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.switches.minus:hover {
+    background-color: rgba(235, 132, 84, 0.452);
+}
+
+.switches.plus:hover {
+    background-color: rgba(149, 218, 39, 0.39);
+}
+
+.minutesDisplay {
+    width: 30px;
+    font-size: 25px;
+    margin: auto 5px;
+}
